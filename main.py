@@ -13,7 +13,6 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from concurrent.futures import ThreadPoolExecutor
 
-# --- 🍎 Apple Style Config ---
 ctk.set_appearance_mode("Light") 
 ctk.set_default_color_theme("blue")
 
@@ -22,7 +21,6 @@ COLOR_CARD = "#FFFFFF"
 COLOR_ACCENT = "#007AFF"
 COLOR_TEXT = "#1D1D1F"
 
-# --- 🐧 Arch Terminal Config ---
 TERM_BG = "#0c0c0c"
 TERM_FG = "#33ff00"
 TERM_ERR = "#ff5555"
@@ -58,13 +56,10 @@ class HybridMangaApp(ctk.CTk):
         self.geometry("950x850")
         self.configure(fg_color=COLOR_BG)
         
-        # --- 🖼️ ส่วนที่เพิ่มมา: ตั้งไอคอนโปรแกรม ---
-        # ใช้ try/except เพื่อกัน Error กรณีหาไฟล์รูปไม่เจอ
         try:
             self.iconbitmap("icon.ico") 
         except:
             pass 
-        # ----------------------------------------
 
         self.font_title = ("Segoe UI", 24, "bold")
         self.font_bold = ("Segoe UI", 13, "bold")
@@ -96,7 +91,6 @@ class HybridMangaApp(ctk.CTk):
         # Bindings
         self.url_text_area.bind("<Button-3>", self.show_context_menu)
         self.url_text_area.bind("<FocusIn>", self.clear_placeholder)
-        # ❌ ลบบรรทัด <Control-v> ออกแล้ว เพื่อไม่ให้วางซ้ำ 2 รอบ
 
         # Save Path
         self.path_frame = ctk.CTkFrame(self.top_frame, fg_color="transparent")
